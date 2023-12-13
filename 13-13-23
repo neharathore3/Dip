@@ -1,0 +1,106 @@
+
+    #Box Blur
+import cv2
+import matplotlib.pyplot as plt
+img=cv2.imread("D:/earth.webp")
+
+#kernel Size
+ksize=(3,3)
+ksize1=(5,5)
+ksize2=(15,15)
+
+bb=cv2.blur(img,ksize)
+bb1=cv2.blur(img,ksize1)
+bb2=cv2.blur(img,ksize2)
+
+plt.subplot(232),plt.imshow(img),plt.title("Original Image"),plt.axis("off")
+plt.subplot(234),plt.imshow(bb),plt.title("3*3"),plt.axis("off")
+plt.subplot(235),plt.imshow(bb1),plt.title("5*5"),plt.axis("off")
+plt.subplot(236),plt.imshow(bb2),plt.title("15*15"),plt.axis("off")
+
+plt.show()
+
+      #Gaussian Noise
+import cv2
+import matplotlib.pyplot as plt
+img=cv2.imread("D:/earth.webp")
+#kernel Size
+ksize=(3,3)
+ksize1=(5,5)
+ksize2=(15,15)
+
+bb=cv2.blur(img,ksize)
+bb1=cv2.blur(img,ksize1)
+bb2=cv2.blur(img,ksize2)
+
+gg1=cv2.GaussianBlur(img, (5,5), 1)
+gg2=cv2.GaussianBlur(img, (5,5), 5)
+
+plt.subplot(332),plt.imshow(img),plt.title("Original Image"),plt.axis("off")
+
+plt.subplot(334),plt.imshow(bb),plt.title("Box blur 3*3"),plt.axis("off")
+plt.subplot(335),plt.imshow(bb2),plt.title("Box Blur 5*5"),plt.axis("off")
+plt.subplot(336),plt.imshow(bb2),plt.title("Box blur 15*15"),plt.axis("off")
+
+plt.subplot(337),plt.imshow(gg1),plt.title("3*3"),plt.axis("off")
+plt.subplot(339),plt.imshow(gg2),plt.title("5*5"),plt.axis("off")
+
+plt.show()
+
+    #Median Filter
+import cv2
+import matplotlib.pyplot as plt
+img=cv2.imread("D:/cse-49/download.jpg")
+
+#kernel Size
+ksize=(3,3)
+ksize1=(5,5)
+ksize2=(15,15)
+
+bb=cv2.medianBlur(img,3)
+bb1=cv2.medianBlur(img,5)
+bb2=cv2.medianBlur(img,15)
+
+gg1=cv2.GaussianBlur(img, (5,5), 1)
+gg2=cv2.GaussianBlur(img, (5,5), 5)
+
+plt.subplot(332),plt.imshow(img),plt.title("Original Image"),plt.axis("off")
+
+plt.subplot(334),plt.imshow(bb),plt.title("Median blur 3*3"),plt.axis("off")
+plt.subplot(335),plt.imshow(bb2),plt.title("Median Blur 5*5"),plt.axis("off")
+plt.subplot(336),plt.imshow(bb2),plt.title("Median blur 15*15"),plt.axis("off")
+
+plt.subplot(337),plt.imshow(gg1),plt.title("GaussianBlur 3*3"),plt.axis("off")
+plt.subplot(339),plt.imshow(gg2),plt.title("GaussianBlur 5*5"),plt.axis("off")
+
+plt.show()
+
+
+     #Bilateral
+
+import cv2
+import matplotlib.pyplot as plt
+img=cv2.imread("D:/cse-49/download.jpg")
+
+#kernel Size
+ksize=(3,3)
+ksize1=(5,5)
+ksize2=(15,15)
+
+bb=cv2.medianBlur(img,3)
+bb1=cv2.medianBlur(img,5)
+bb2=cv2.medianBlur(img,15)
+
+gg1=cv2.bilateralFilter(img,5,75,75)
+gg2=cv2.bilateralFilter(img,7,75,75)
+
+plt.subplot(332),plt.imshow(img),plt.title("Original Image"),plt.axis("off")
+
+plt.subplot(334),plt.imshow(bb),plt.title("Median blur 3*3"),plt.axis("off")
+plt.subplot(335),plt.imshow(bb2),plt.title("Median Blur 5*5"),plt.axis("off")
+plt.subplot(336),plt.imshow(bb2),plt.title("Median blur 15*15"),plt.axis("off")
+
+plt.subplot(337),plt.imshow(gg1),plt.title("bilateralFilter 5"),plt.axis("off")
+plt.subplot(339),plt.imshow(gg2),plt.title("bilateralFilter 7"),plt.axis("off")
+
+plt.show()
